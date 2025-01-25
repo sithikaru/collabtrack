@@ -1,10 +1,129 @@
 <div align="center" style="padding: 2rem;">
-  <img 
-    src="https://user-images.githubusercontent.com/000000/placeholder-banner.png" 
-    alt="Collab Track Banner" 
-    width="700" 
-    style="border-radius: 8px; margin-bottom: 20px;"
-  />
+  <div class="collabtrack-banner">
+  <div class="banner-bg">
+    <div class="banner-content">
+      <h1 class="banner-title">CollabTrack</h1>
+      <p class="banner-subtitle">
+        <strong>Empower your Team</strong> • <em>Embrace Collaboration</em>
+      </p>
+    </div>
+    <!-- Animated Bubbles -->
+    <div class="bubble bubble1"></div>
+    <div class="bubble bubble2"></div>
+    <div class="bubble bubble3"></div>
+    <div class="bubble bubble4"></div>
+    <div class="bubble bubble5"></div>
+  </div>
+</div>
+
+<style>
+  /* BANNER CONTAINER */
+  .collabtrack-banner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* BACKGROUND WRAPPER */
+  .banner-bg {
+    position: relative;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #3F51B5, #9C27B0);
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+
+  /* BANNER TEXT CONTENT */
+  .banner-title {
+    font-size: 3rem;
+    margin: 0 0 0.5rem;
+    animation: fade-in 1.6s ease-in-out forwards;
+    opacity: 0;
+  }
+
+  .banner-subtitle {
+    font-size: 1.2rem;
+    margin: 0;
+    animation: fade-in 2.2s ease-in-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fade-in {
+    0%   { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* BUBBLE ANIMATIONS */
+  .bubble {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    position: absolute;
+    bottom: -60px; /* start outside visible area */
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float-up 6s infinite ease-in;
+    transform: translateX(0);
+  }
+
+  /* Adjust each bubble's position, size, and delay to add variety */
+  .bubble1 {
+    left: 10%;
+    animation-delay: 0.4s;
+  }
+  .bubble2 {
+    left: 30%;
+    width: 80px; height: 80px;
+    animation-delay: 1.2s;
+  }
+  .bubble3 {
+    left: 50%;
+    animation-delay: 2s;
+    opacity: 0.2;
+  }
+  .bubble4 {
+    left: 70%;
+    animation-delay: 1s;
+    width: 45px; height: 45px;
+  }
+  .bubble5 {
+    left: 85%;
+    animation-delay: 1.6s;
+    width: 70px; height: 70px;
+    opacity: 0.15;
+  }
+
+  @keyframes float-up {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-200px) scale(1.1);
+    }
+    100% {
+      transform: translateY(-600px) scale(0.9);
+    }
+  }
+
+  /* RESPONSIVE ADJUSTMENTS */
+  @media (max-width: 600px) {
+    .banner-title {
+      font-size: 2.2rem;
+    }
+    .banner-subtitle {
+      font-size: 1rem;
+    }
+    .banner-bg {
+      padding: 3rem 1rem;
+    }
+    .bubble {
+      display: none; /* Hide bubbles on small screens if they overlap too much */
+    }
+  }
+</style>
   <h1 style="color:#4CAF50; font-weight:900; font-size:3.5rem; margin: 0;">
     Collab Track
   </h1>
