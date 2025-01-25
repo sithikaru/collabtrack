@@ -1,129 +1,49 @@
-<div align="center" style="padding: 2rem;">
-  <div class="collabtrack-banner">
-  <div class="banner-bg">
-    <div class="banner-content">
-      <h1 class="banner-title">CollabTrack</h1>
-      <p class="banner-subtitle">
-        <strong>Empower your Team</strong> • <em>Embrace Collaboration</em>
-      </p>
-    </div>
-    <!-- Animated Bubbles -->
-    <div class="bubble bubble1"></div>
-    <div class="bubble bubble2"></div>
-    <div class="bubble bubble3"></div>
-    <div class="bubble bubble4"></div>
-    <div class="bubble bubble5"></div>
-  </div>
+<!-- 
+  ============================
+  COLLABTRACK INLINE BANNER
+  ============================
+  USAGE:
+  1) Copy and paste this code into your README.md or a standalone HTML file.
+  2) GitHub READMEs may not display the animation fully, but websites/CodePen will.
+-->
+
+<div style="
+  position: relative; 
+  width: 100%; 
+  padding: 3rem 1rem; 
+  text-align: center; 
+  background: linear-gradient( -45deg, #ff4a4a, #ff7e49, #ffd149, #49ffa1 );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  border-radius: 8px;
+  font-family: sans-serif;
+">
+  <h1 style="
+    color: #fff; 
+    margin: 0 auto 0.5rem; 
+    font-size: 3rem; 
+    font-weight: 900; 
+    animation: fadeIn 2s ease-in forwards;
+    opacity: 0;
+  ">
+    CollabTrack
+  </h1>
+  <p style="
+    color: #fff; 
+    font-size: 1.2rem; 
+    margin: 0 auto; 
+    max-width: 600px; 
+    line-height: 1.5; 
+    animation: fadeIn 3s ease-in forwards;
+    opacity: 0;
+  ">
+    Empowering Teams with Real-Time Task Management,
+    Seamless Collaboration, and Modern Web Technology.
+  </p>
 </div>
 
-<style>
-  /* BANNER CONTAINER */
-  .collabtrack-banner {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
 
-  /* BACKGROUND WRAPPER */
-  .banner-bg {
-    position: relative;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #3F51B5, #9C27B0);
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  }
 
-  /* BANNER TEXT CONTENT */
-  .banner-title {
-    font-size: 3rem;
-    margin: 0 0 0.5rem;
-    animation: fade-in 1.6s ease-in-out forwards;
-    opacity: 0;
-  }
-
-  .banner-subtitle {
-    font-size: 1.2rem;
-    margin: 0;
-    animation: fade-in 2.2s ease-in-out forwards;
-    opacity: 0;
-  }
-
-  @keyframes fade-in {
-    0%   { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  /* BUBBLE ANIMATIONS */
-  .bubble {
-    width: 60px;
-    height: 60px;
-    background: #fff;
-    position: absolute;
-    bottom: -60px; /* start outside visible area */
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: float-up 6s infinite ease-in;
-    transform: translateX(0);
-  }
-
-  /* Adjust each bubble's position, size, and delay to add variety */
-  .bubble1 {
-    left: 10%;
-    animation-delay: 0.4s;
-  }
-  .bubble2 {
-    left: 30%;
-    width: 80px; height: 80px;
-    animation-delay: 1.2s;
-  }
-  .bubble3 {
-    left: 50%;
-    animation-delay: 2s;
-    opacity: 0.2;
-  }
-  .bubble4 {
-    left: 70%;
-    animation-delay: 1s;
-    width: 45px; height: 45px;
-  }
-  .bubble5 {
-    left: 85%;
-    animation-delay: 1.6s;
-    width: 70px; height: 70px;
-    opacity: 0.15;
-  }
-
-  @keyframes float-up {
-    0% {
-      transform: translateY(0) scale(1);
-    }
-    50% {
-      transform: translateY(-200px) scale(1.1);
-    }
-    100% {
-      transform: translateY(-600px) scale(0.9);
-    }
-  }
-
-  /* RESPONSIVE ADJUSTMENTS */
-  @media (max-width: 600px) {
-    .banner-title {
-      font-size: 2.2rem;
-    }
-    .banner-subtitle {
-      font-size: 1rem;
-    }
-    .banner-bg {
-      padding: 3rem 1rem;
-    }
-    .bubble {
-      display: none; /* Hide bubbles on small screens if they overlap too much */
-    }
-  }
-</style>
   <h1 style="color:#4CAF50; font-weight:900; font-size:3.5rem; margin: 0;">
     Collab Track
   </h1>
@@ -281,3 +201,19 @@ By reading this project’s overview, you’ll discover how **Collab Track**:
 > **Collab Track** stands prepared to help you **plan**, **organize**, and **deliver** tasks smoothly.
 
 Thank you for exploring **Collab Track**—where innovation meets seamless collaboration!
+
+
+
+<style>
+/* Inline style block for keyframes & animations */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+</style>
