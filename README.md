@@ -1,10 +1,3 @@
-```md
-<!-- 
-  WELCOME TO THE OFFICIAL README FOR THE COLLABORATIVE TASK MANAGEMENT SYSTEM!
-  This file aims to be as comprehensive, stylish, modern, and visually appealing as possible.
-  Enjoy the ride!
--->
-
 <div align="center">
   <!-- BANNER OR LOGO -->
   <img src="https://user-images.githubusercontent.com/000000/placeholder-banner.png" 
