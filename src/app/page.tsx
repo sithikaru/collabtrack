@@ -27,8 +27,6 @@ export default function Home() {
       router.push("/signup");
     }
   };
-
-  // Optional: If you want a brief loading state while checking auth
   if (checkingAuth) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-bg">
