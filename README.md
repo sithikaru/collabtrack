@@ -1,49 +1,3 @@
-<!-- 
-  ============================
-  COLLABTRACK INLINE BANNER
-  ============================
-  USAGE:
-  1) Copy and paste this code into your README.md or a standalone HTML file.
-  2) GitHub READMEs may not display the animation fully, but websites/CodePen will.
--->
-
-<div style="
-  position: relative; 
-  width: 100%; 
-  padding: 3rem 1rem; 
-  text-align: center; 
-  background: linear-gradient( -45deg, #ff4a4a, #ff7e49, #ffd149, #49ffa1 );
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
-  border-radius: 8px;
-  font-family: sans-serif;
-">
-  <h1 style="
-    color: #fff; 
-    margin: 0 auto 0.5rem; 
-    font-size: 3rem; 
-    font-weight: 900; 
-    animation: fadeIn 2s ease-in forwards;
-    opacity: 0;
-  ">
-    CollabTrack
-  </h1>
-  <p style="
-    color: #fff; 
-    font-size: 1.2rem; 
-    margin: 0 auto; 
-    max-width: 600px; 
-    line-height: 1.5; 
-    animation: fadeIn 3s ease-in forwards;
-    opacity: 0;
-  ">
-    Empowering Teams with Real-Time Task Management,
-    Seamless Collaboration, and Modern Web Technology.
-  </p>
-</div>
-
-
-
   <h1 style="color:#4CAF50; font-weight:900; font-size:3.5rem; margin: 0;">
     Collab Track
   </h1>
@@ -203,17 +157,3 @@ By reading this project’s overview, you’ll discover how **Collab Track**:
 Thank you for exploring **Collab Track**—where innovation meets seamless collaboration!
 
 
-
-<style>
-/* Inline style block for keyframes & animations */
-@keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes fadeIn {
-  0%   { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-</style>
