@@ -9,6 +9,8 @@ import {
   updateProfile,
   sendEmailVerification,
 } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 export default function SignUp() {
   const router = useRouter();
@@ -38,7 +40,11 @@ export default function SignUp() {
       setLoading(true);
 
       // 1) Create user with email & password
-      const userCred = await createUserWithEmailAndPassword(auth, email, password);
+      const userCred = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
       // 2) Update displayName if needed
       if (userCred.user) {
@@ -50,10 +56,16 @@ export default function SignUp() {
       //    But typically you'd do:
       await sendEmailVerification(userCred.user);
 
+      const user = userCred.user;
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        fullName: name,
+        createdAt: new Date(),
+      });
       // 4) Redirect to verification page
       // 4) Redirect to verification page
       router.push("/verify-email");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error("Sign-up error:", err);
       setError(err.message || "Failed to create account. Please try again.");
@@ -74,7 +86,9 @@ export default function SignUp() {
         {/* Left Column: Hero Heading */}
         <div className="flex flex-1 flex-col items-center justify-center p-4">
           <h1 className="text-4xl font-bold text-primary text-center md:text-6xl">
-            Join the<br />Collaboration!
+            Join the
+            <br />
+            Collaboration!
           </h1>
           <p className="mt-2 text-center text-xl font-light text-secondary">
             Create your account and
