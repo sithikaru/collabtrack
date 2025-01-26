@@ -3,6 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 // Firebase
 import { auth } from "@/lib/firebase";
@@ -11,6 +16,75 @@ import {
   sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
+
+function GoogleIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 48 48"
+    >
+      <path
+        fill="#EA4335"
+        d="M24 9.5c3.94 0 6.56 1.71 8.07 3.14l5.9-5.91C34.93 3.31 29.98 1 24 1 14.28 1 6.09 6.78 2.67 14.29l6.9 5.34C11.26 13.11 17.12 9.5 24 9.5z"
+      />
+      <path
+        fill="#4285F4"
+        d="M46.5 24.4c0-1.54-.14-3.02-.4-4.46H24v8.42h12.7c-.52 2.27-1.75 4.28-3.54 5.61l5.6 4.35c3.28-3.01 5.74-7.49 5.74-13.92z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M9.57 21.41l-6.9-5.34C.94 20.19 0 22.96 0 26c0 3.07.94 5.84 2.67 8.37l6.9-5.34C8.76 27.4 8.5 26.21 8.5 26c0-.21.26-1.4 1.07-4.59z"
+      />
+      <path
+        fill="#34A853"
+        d="M24 48c6.48 0 11.91-2.05 15.88-5.58l-5.6-4.35c-2.43 1.66-5.61 2.63-10.28 2.63-6.88 0-12.74-3.61-15.25-8.85l-6.9 5.34C6.09 41.22 14.28 47 24 47z"
+      />
+      <path fill="none" d="M0 0h48v48H0z" />
+    </svg>
+  );
+}
+
+function GithubIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M12 .297c-6.63 0-12 5.373-12 12
+         0 5.302 3.438 9.8 8.205 11.387.6 
+         .113.82-.258.82-.577 0-.285-.01-1.04
+         -.015-2.04-3.338.725-4.042-1.613
+         -4.042-1.613-.546-1.387-1.333-1.757
+         -1.333-1.757-1.09-.744.083-.729
+         .083-.729 1.205.084 1.838 1.235
+         1.838 1.235 1.07 1.835 2.807
+         1.304 3.492.997.107-.776.417
+         -1.305.757-1.605-2.665-.305-5.466
+         -1.332-5.466-5.93 0-1.31.47-2.38
+         1.235-3.22-.135-.303-.54-1.523
+         .105-3.176 0 0 1.005-.322 3.3
+         1.23a11.5 11.5 0 013.003-.403
+         c1.018.004 2.041.138 3.003.403
+         2.28-1.552 3.285-1.23 3.285-1.23
+         .645 1.653.24 2.873.12 3.176
+         .765.84 1.235 1.91 1.235 3.22
+         0 4.61-2.805 5.625-5.475
+         5.92.43.36.81 1.096.81 2.21
+         0 1.6-.015 2.88-.015 3.28
+         0 .315.21.69.825.57A11.998
+         11.998 0 0024 12.297c0-6.627
+         -5.373-12-12-12z"
+      />
+    </svg>
+  );
+}
 
 export default function SignIn() {
   const router = useRouter();
@@ -46,7 +120,7 @@ export default function SignIn() {
         return;
       }
 
-      router.push("/tasks");
+      router.push("/projects");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error("Sign-in error:", err);
@@ -207,6 +281,27 @@ export default function SignIn() {
                 </Link>
               </p>
             </form>
+            <div className="space-y-4">
+              <button
+                onClick={async () => {
+                  await signInWithPopup(auth, new GoogleAuthProvider());
+                  router.push("/projects");
+                }}
+                className="w-full flex items-center justify-center gap-2 bg-green-500 text-white p-3 rounded"
+              >
+                <GoogleIcon /> Continue with Google
+              </button>
+
+              <button
+                onClick={async () => {
+                  await signInWithPopup(auth, new GithubAuthProvider());
+                  router.push("/projects");
+                }}
+                className="w-full flex items-center justify-center gap-2 bg-gray-800 text-white p-3 rounded"
+              >
+                <GithubIcon /> Continue with GitHub
+              </button>
+            </div>
           </div>
         </div>
       </div>
