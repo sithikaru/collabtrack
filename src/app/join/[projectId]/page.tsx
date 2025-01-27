@@ -5,7 +5,11 @@ import { useRouter } from "next/navigation";
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db, auth } from "@/lib/firebase";
 
-export default function JoinProject({ params }: { params: { projectId: string } }) {
+interface PageProps {
+  params: { projectId: string };
+}
+
+export default function JoinProject({ params }: PageProps) {
   const router = useRouter();
   const projectId = params.projectId;
 
@@ -21,7 +25,7 @@ export default function JoinProject({ params }: { params: { projectId: string } 
         const projectRef = doc(db, "projects", projectId);
         await updateDoc(projectRef, {
           members: arrayUnion(user.uid),
-          invitations: arrayRemove(user.email)
+          invitations: arrayRemove(user.email),
         });
         router.push(`/projects/${projectId}`);
       } catch (error) {
