@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   doc,
   collection,
@@ -30,9 +30,13 @@ interface Task {
   updatedAt: any;
 }
 
-export default function JoinProjectPage() {
+export default function JoinProjectPage({
+  params,
+}: {
+  params: { projectId: string };
+}) {
   const router = useRouter();
-  const { projectId } = useParams() as { projectId: string };
+  const { projectId } = params;
 
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [project, setProject] = useState<Project | null>(null);
